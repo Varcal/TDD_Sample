@@ -2,10 +2,7 @@
 using Bogus;
 using Bogus.Extensions.Brazil;
 using FluentAssertions;
-using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.Formatters;
-using Microsoft.AspNetCore.TestHost;
 using Moq;
 using TDD_Sample.Api.Controllers;
 using TDD_Sample.Api.Models;
