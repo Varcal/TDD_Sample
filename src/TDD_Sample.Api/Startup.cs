@@ -3,7 +3,7 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using TDD_Sample.Dominio.Servicos;
+using TDD_Sample.Infra.IOC;
 
 namespace TDD_Sample.Api
 {
@@ -19,7 +19,8 @@ namespace TDD_Sample.Api
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddScoped<IClienteServico, ClienteServico>();
+            IoCConfig.RegisterServices(services);
+            services.AddSwaggerGen();
             services.AddControllers();
         }
 
@@ -32,6 +33,13 @@ namespace TDD_Sample.Api
             }
 
             app.UseHttpsRedirection();
+
+            app.UseSwagger();
+            app.UseSwaggerUI(config =>
+            {
+                config.SwaggerEndpoint("/swagger/v1/swagger.json", "TDD Sample API");
+                config.RoutePrefix = string.Empty;
+            });
 
             app.UseRouting();
 

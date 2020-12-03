@@ -25,10 +25,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\..\src\TDD_Sample.Dominio\TDD_Sample.Dominio.csproj" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="Servicos\" />
+    <ProjectReference Include="..\Common.Testes\Common.Testes.csproj" />
   </ItemGroup>
 
 </Project>
